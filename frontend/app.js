@@ -1,3 +1,4 @@
+const API_BASE = 'https://e-ticket-backend-2eb3.onrender.com';
 let siteConfig = {};
 
 const $ = (selector) => document.querySelector(selector);
@@ -24,7 +25,7 @@ function money(amount) {
 }
 
 async function loadConfig() {
-  const res = await fetch('/api/config');
+  const res = await fetch(`${API_BASE}/api/config`);
   siteConfig = await res.json();
   $('#programName').textContent = siteConfig.programName;
   $('#programDate').textContent = siteConfig.programDate;
@@ -45,7 +46,7 @@ async function fetchAccount() {
   const output = $('#accountOutput');
   if (!token) return;
 
-  const res = await fetch('/api/my-account', {
+  const res = await fetch(`${API_BASE}/api/my-account`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) {
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     payload.quantity = Number(payload.quantity);
 
     setMessage(message, 'Submitting your request...', '');
-    const res = await fetch('/api/register-ticket', {
+    const res = await fetch(`${API_BASE}/api/register-ticket`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = $('#accountOutput');
     output.innerHTML = '<p class="muted">Signing in...</p>';
 
-    const res = await fetch('/api/login', {
+    const res = await fetch(`${API_BASE}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),

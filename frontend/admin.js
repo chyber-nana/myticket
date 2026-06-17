@@ -1,3 +1,4 @@
+const API_BASE = 'https://e-ticket-backend-2eb3.onrender.com';
 const $ = (selector) => document.querySelector(selector);
 
 function adminToken() {
@@ -23,7 +24,7 @@ async function loadRequests() {
   const output = $('#requestsOutput');
   output.innerHTML = '<p class="muted">Loading requests...</p>';
 
-  const res = await fetch(`/api/admin/requests?status=${encodeURIComponent(status)}`, {
+  const res = await fetch(`${API_BASE}/api/admin/requests?status=${encodeURIComponent(status)}`, {
     headers: adminHeaders(),
   });
   const data = await res.json();
@@ -59,7 +60,7 @@ async function updateRequest(id, action) {
 
   if (note === null) return;
 
-  const res = await fetch(`/api/admin/requests/${id}/${action}`, {
+  const res = await fetch(`${API_BASE}/api/admin/requests/${id}/${action}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...adminHeaders() },
     body: JSON.stringify({ note }),
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const payload = Object.fromEntries(new FormData(event.currentTarget).entries());
     $('#adminLoginMessage').textContent = 'Signing in...';
 
-    const res = await fetch('/api/admin/login', {
+    const res = await fetch(`${API_BASE}/api/admin/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -109,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = $('#verifyOutput');
     output.innerHTML = '<p class="muted">Checking code...</p>';
 
-    const res = await fetch(`/api/admin/verify/${encodeURIComponent(code)}`, {
+    const res = await fetch(`${API_BASE}/api/admin/verify/${encodeURIComponent(code)}`, {
       headers: adminHeaders(),
     });
     const data = await res.json();
