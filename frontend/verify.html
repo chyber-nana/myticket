@@ -21,7 +21,7 @@
   </main>
   <script>
     const code = location.pathname.split('/').pop();
-    fetch(`/api/verify/${code}`)
+    fetch(`https://e-ticket-backend-2eb3.onrender.com/api/verify/${code}`)
       .then(res => res.json())
       .then(data => {
         const result = document.getElementById('result');
