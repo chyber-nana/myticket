@@ -293,6 +293,21 @@ select:focus {
   color: var(--muted);
 }
 
+.ticket-qr {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.ticket-qr img {
+  width: 160px;
+  height: 160px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
+  background: #fff;
+}
+
 .payment-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

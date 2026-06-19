@@ -62,7 +62,13 @@ async function fetchAccount() {
       <p class="muted">${ticket.ticket_type} — Quantity: ${ticket.quantity} — ${money(ticket.amount)}</p>
       <p class="muted">Payment reference: ${ticket.payment_reference}</p>
       ${ticket.status === 'approved'
-        ? `<div class="ticket-code">${ticket.ticket_code}</div><p class="muted small">Present this code at check-in.</p>`
+        ? `<div class="ticket-code">
+      ${ticket.ticket_code}
+    </div>
+
+    <div class="ticket-qr">
+      <img src="${ticket.qr_code}" alt="Ticket QR Code">
+    </div><p class="muted small">Present this code at check-in.</p>`
         : ''}
       ${ticket.status === 'pending' ? '<p class="muted small">Awaiting payment confirmation.</p>' : ''}
       ${ticket.status === 'rejected' ? `<p class="muted small">${ticket.admin_note || 'Request rejected.'}</p>` : ''}
