@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Program Tickets</title>
+  <title>Teens in Christ Ministry — Tickets</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -11,28 +11,39 @@
     <header class="site-header">
       <div>
         <p class="eyebrow">Ticket Registration</p>
-        <h1 id="programName">Program Tickets</h1>
+        <h1 id="programName">Teens in Christ Ministry</h1>
       </div>
       <a class="text-link" href="#account">Check my ticket</a>
     </header>
 
+    <!-- FLYER BANNER -->
+    <div class="flyer-banner">
+      <img src="./back.jpg" alt="Teens in Christ Ministry — A New Me For A New Season flyer">
+    </div>
+
+    <!-- HERO + TICKET CARD -->
     <section class="hero-panel">
       <div class="hero-copy">
-        <p class="date-line" id="programDate">Program date</p>
+        <p class="date-line" id="programDate">Saturday, 27th June 2026</p>
         <h2>Reserve your seat and receive your e-ticket after payment confirmation.</h2>
-        <p class="muted" id="programVenue">Venue</p>
+        <p class="muted" id="programVenue">Shekinah Pentecost Church, Aboom Central</p>
         <div class="actions">
           <button class="primary-btn" id="openPaymentBtn">Purchase Ticket</button>
         </div>
       </div>
       <aside class="ticket-card">
-        <p class="label">Ticket</p>
-        <h3 id="ticketType">General Admission</h3>
-        <p class="price"><span id="currency">GHS</span> <span id="ticketPrice">0</span></p>
-        <p class="muted small">Your ticket code is issued only after admin approval.</p>
+        <div>
+          <p class="label">Ticket</p>
+          <h3 id="ticketType">General Admission</h3>
+        </div>
+        <div>
+          <p class="price"><span id="currency">GHS</span> <span id="ticketPrice">10.00</span></p>
+          <p class="muted small">Your ticket code is issued only after admin approval.</p>
+        </div>
       </aside>
     </section>
 
+    <!-- ACCOUNT SECTION -->
     <section id="account" class="account-panel">
       <div>
         <p class="eyebrow">Your Account</p>
@@ -50,6 +61,7 @@
     </section>
   </main>
 
+  <!-- PAYMENT MODAL -->
   <div class="modal" id="paymentModal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
       <button class="close-btn" data-close="paymentModal" aria-label="Close">×</button>
@@ -72,6 +84,7 @@
     </div>
   </div>
 
+  <!-- DETAILS MODAL -->
   <div class="modal" id="detailsModal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
       <button class="close-btn" data-close="detailsModal" aria-label="Close">×</button>
